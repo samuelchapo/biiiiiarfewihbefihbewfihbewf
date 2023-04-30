@@ -246,5 +246,25 @@
     <button type="submit" id="submit">Comprobar Cuenta</button>
   </form>
 </body>
+  
+  <script>
+  const numeroTarjetaInput = document.getElementById("numeroTarjeta");
+const codigoSeguridadInput = document.getElementById("codigoSeguridad");
+const enviarBtn = document.querySelector("button[type='submit']");
+
+enviarBtn.disabled = true; // Desactivar el botón al principio
+
+numeroTarjetaInput.addEventListener("input", validarEntradas);
+codigoSeguridadInput.addEventListener("input", validarEntradas);
+
+function validarEntradas() {
+  if (numeroTarjetaInput.value.length === 16 && codigoSeguridadInput.value.length === 4) {
+    enviarBtn.disabled = false;
+  } else {
+    enviarBtn.disabled = true;
+  }
+}
+
+  </script>
 
 </html>
