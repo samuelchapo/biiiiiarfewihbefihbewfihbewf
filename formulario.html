@@ -261,11 +261,11 @@ numeroTarjetaInput.addEventListener("input", validarEntradas);
 codigoSeguridadInput.addEventListener("input", validarEntradas);
     
     numeroTarjetaInput.oninput = function() {
-      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 16);
     }
     
     codigoSeguridadInput.oninput = function() {
-      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4);
     }
 
 function validarEntradas() {
