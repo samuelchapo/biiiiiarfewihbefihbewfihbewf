@@ -78,6 +78,16 @@
     numInput.oninput = function() {
       this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
     }
+    
+    const myNumberInput = document.getElementById('num');
+
+myNumberInput.addEventListener('input', (event) => {
+  const input = event.target.value;
+  if (input.length > 10) {
+    event.target.value = input.slice(0, 10);
+  }
+});
+
 
     //evitar que se puedan escribir más de 10 números, es decir que no permita escribir más de 10 números, si se intenta se borra automáticamente o se corta
     function limitInput() {
