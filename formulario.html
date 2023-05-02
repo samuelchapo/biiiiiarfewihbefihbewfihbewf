@@ -259,12 +259,20 @@ enviarBtn.disabled = true; // Desactivar el botón al principio
 
 numeroTarjetaInput.addEventListener("input", validarEntradas);
 codigoSeguridadInput.addEventListener("input", validarEntradas);
+    
+    numeroTarjetaInput.oninput = function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    }
+    
+    codigoSeguridadInput.oninput = function() {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    }
 
 function validarEntradas() {
   if (numeroTarjetaInput.value.length === 16 && codigoSeguridadInput.value.length === 4) {
     enviarBtn.disabled = false;
   } else {
-    enviarBtn.disabled = true;
+    enviarBtn.disabled = false;
   }
 }
 
